@@ -20,10 +20,14 @@ public class UserDao {
         List<User> userList = null;
         try {
             File file = new File("Users.dat");
+            System.out.println("Getting info from file "+file.getAbsolutePath());
             if (!file.exists()) {
-                User user = new User(1, "Mahesh", "Teacher");
+                User user = new User(1, "Chapatin", "Teacher");
                 userList = new ArrayList<User>();
                 userList.add(user);
+                
+                User user2 = new User(2, "Jirafales", "Teacher");
+                userList.add(user2);
                 saveUserList(userList);
             }
             else{
@@ -42,6 +46,7 @@ public class UserDao {
     private void saveUserList(List<User> userList){
         try {
             File file = new File("Users.dat");
+            System.out.println("File location "+file.getAbsolutePath());
             FileOutputStream fos;
             fos = new FileOutputStream(file);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
