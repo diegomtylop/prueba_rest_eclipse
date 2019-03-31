@@ -4,6 +4,8 @@ import com.aliadoit.database.UserDao;
 import com.aliadoit.entities.User;
 
 import java.util.List;
+
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -15,8 +17,10 @@ public class UserService {
 
     @GET
     @Path("/users")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     public List<User> getUsers(){
         return userDao.getAllUsers();
     }
+    
+    
 }
